@@ -1,0 +1,65 @@
+<div class="shadow bg-white rounded mb-3 p-3">
+  <div class="row">
+    <div class="col-12">
+      <label class="h4">User List</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+            <th scope="col">Language Skills</th>
+            <th scope="col">Resume</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Actions</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="isLoading">
+            <td colspan="100" class="text-center">
+              <div class="spinner-border text-danger spinner-border-sm" role="status">
+                <span class="sr-only">Loading...</span>
+              </div><span class="text-warning p-2">Loading...</span>
+            </td>
+          </tr>
+          <tr *ngFor="let item of userMdlLst; index as i">
+            <th scope="row">{{i+1}}</th>
+            <th scope="row">{{item.name}}</th>
+            <td>
+              {{ item.countryName }}
+            </td>
+            <td>{{ item.cityName }}</td>
+            <td>
+              {{item.languageSkills}}
+            </td>
+            <td>
+              {{item.resume}}
+            </td>
+            <td>
+              <div class="row" *ngIf="item.dob != null">
+                <small> <span class="fa fa-calendar"></span> {{item.dob | date: "dd-MMM-yyyy"}}</small>
+              </div>
+            </td>
+
+            <td>
+              <button class="btn btn-sm btn-outline-info" (click)="onEditClick(item)">Edit</button> &nbsp;
+              <button class="btn btn-sm btn-outline-danger" (click)="onDeleteClick(item)">Delete</button>
+            </td>
+          </tr>
+          <tr *ngIf="!isLoading && userMdlLst.length <= 0">
+            <td colspan="100" class="text-center">
+              <span class="text-info p-2">No Records</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

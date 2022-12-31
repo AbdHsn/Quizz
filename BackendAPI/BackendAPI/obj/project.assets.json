@@ -11509,11 +11509,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
+      "projectUniqueName": "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
       "projectName": "BackendAPI",
-      "projectPath": "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
+      "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
       "packagesPath": "C:\\Users\\New User\\.nuget\\packages\\",
-      "outputPath": "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\obj\\",
+      "outputPath": "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -11535,8 +11535,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj": {
-              "projectPath": "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj"
+            "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj": {
+              "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj"
             }
           }
         }

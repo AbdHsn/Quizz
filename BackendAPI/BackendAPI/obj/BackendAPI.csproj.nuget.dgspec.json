@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\BackendAPI.csproj": {}
+    "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\BackendAPI.csproj": {}
   },
   "projects": {
-    "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\BackendAPI.csproj": {
+    "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\BackendAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
+        "projectUniqueName": "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
         "projectName": "BackendAPI",
-        "projectPath": "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
+        "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\BackendAPI.csproj",
         "packagesPath": "C:\\Users\\New User\\.nuget\\packages\\",
-        "outputPath": "D:\\assessment\\quiz\\BackendAPI\\BackendAPI\\obj\\",
+        "outputPath": "D:\\assessment\\brainStation23\\BackendAPI\\BackendAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj": {
-                "projectPath": "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj"
+              "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj": {
+                "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj"
               }
             }
           }
@@ -117,14 +117,14 @@
         }
       }
     },
-    "D:\\assessment\\quiz\\BackendAPI\\DataLayer\\DataLayer.csproj": {
+    "D:\\assessment\\brainStation23\\BackendAPI\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\assessment\\quiz\\BackendAPI\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "D:\\assessment\\brainStation23\\BackendAPI\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "D:\\assessment\\quiz\\BackendAPI\\DataLayer\\DataLayer.csproj",
+        "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\New User\\.nuget\\packages\\",
-        "outputPath": "D:\\assessment\\quiz\\BackendAPI\\DataLayer\\obj\\",
+        "outputPath": "D:\\assessment\\brainStation23\\BackendAPI\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -187,14 +187,14 @@
         }
       }
     },
-    "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj": {
+    "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj",
+        "projectUniqueName": "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj",
         "projectName": "RepositoryLayer",
-        "projectPath": "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj",
+        "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\RepositoryLayer.csproj",
         "packagesPath": "C:\\Users\\New User\\.nuget\\packages\\",
-        "outputPath": "D:\\assessment\\quiz\\BackendAPI\\RepositoryLayer\\obj\\",
+        "outputPath": "D:\\assessment\\brainStation23\\BackendAPI\\RepositoryLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -216,8 +216,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\assessment\\quiz\\BackendAPI\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "D:\\assessment\\quiz\\BackendAPI\\DataLayer\\DataLayer.csproj"
+              "D:\\assessment\\brainStation23\\BackendAPI\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "D:\\assessment\\brainStation23\\BackendAPI\\DataLayer\\DataLayer.csproj"
               }
             }
           }
