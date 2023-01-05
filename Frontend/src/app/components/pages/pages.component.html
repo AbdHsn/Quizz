@@ -1,8 +1,19 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1 class="text-center mt-5">Hi ◕‿◕</h1>
+<div class="row mt-3">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        <label for="iUserName">User Name</label>
+        <input [(ngModel)]="userMdl.user_name" #iUserName="ngModel" name="iUserName" id="iUserName"
+          placeholder="User Name" type="text" class="form-control" required />
+
+        <div *ngIf="iUserName.invalid && iUserName.dirty">
+          <label class="text-warning" *ngIf="iUserName.errors?.required">User Name is required.</label>
+        </div>
+
+        <button class="btn  btn-sm btn-outline-info mt-2" (click)="login()">Login</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>

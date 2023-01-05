@@ -1,5 +1,5 @@
 ﻿
 public interface IHubClient
 {    
-    Task BroadcastMessage(object obj);
+    Task BroadcastMessage(string obj);
 }

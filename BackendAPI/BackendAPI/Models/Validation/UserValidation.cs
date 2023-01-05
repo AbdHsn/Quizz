@@ -7,6 +7,7 @@ namespace APIDotNetCore.Models.Validation
     {
         public UserValidation()
         {
+            RuleFor(r => r.name).NotNull().NotEmpty();
             RuleFor(r => r.user_name).NotNull().NotEmpty();
         }
     }

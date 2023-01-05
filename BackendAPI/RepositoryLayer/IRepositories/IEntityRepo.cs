@@ -10,6 +10,7 @@ namespace RepositoryLayer
         #region "Get Methods Definition"
         Task<IEnumerable<T>> GetAll();
         Task<T> GetById(Expression<Func<T, bool>> predicate);
+        Task<List<T>> GetByFilter(Expression<Func<T, bool>> predicate);
         #endregion "Get Methods Definition"
 
         #region "DB Operation Methods Definition"

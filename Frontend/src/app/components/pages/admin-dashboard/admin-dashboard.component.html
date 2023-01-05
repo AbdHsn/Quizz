@@ -1,0 +1,50 @@
+<div class="shadow bg-white rounded mb-3 p-3">
+  <div class="row">
+    <button class="nav-link" routerLink="/pages/question-list">Create & Question List <span
+        class="sr-only"></span></button>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label class="h4">Quiz Dashboard & Live Score</label>
+    </div>
+    <div class="col-12">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Quiz Reference</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Total Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="isLoading">
+            <td colspan="100" class="text-center">
+              <div class="spinner-border text-danger spinner-border-sm" role="status">
+                <span class="sr-only">Loading...</span>
+              </div><span class="text-warning p-2">Loading...</span>
+            </td>
+          </tr>
+          <tr *ngFor="let item of dashboardMdlLst; index as i">
+            <th scope="row">{{i+1}}</th>
+            <th scope="row">{{item.quiz_reference}}</th>
+            <td>
+              {{ item.user_name }}
+            </td>
+            <td>{{ item?.items?.length }}</td>
+          </tr>
+          <tr *ngIf="!isLoading && dashboardMdlLst.length <= 0">
+            <td colspan="100" class="text-center">
+              <span class="text-info p-2">No Records</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

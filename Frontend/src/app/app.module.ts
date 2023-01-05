@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbdToastGlobal } from './components/pages/common-pages/toast-global/toast-global.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastService } from 'src/services/toast.service';
-import { UserService } from 'src/services/user.service';
+import { APIService } from 'src/services/api.service';
 import { ToastsContainer } from 'src/services/ToastsContainer.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -34,7 +34,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     NoopAnimationsModule,
   ],
-  providers: [HttpClient, ToastService, UserService],
+  providers: [HttpClient, ToastService, APIService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

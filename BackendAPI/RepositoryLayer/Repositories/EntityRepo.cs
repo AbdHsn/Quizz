@@ -32,6 +32,12 @@ namespace RepositoryLayer
         {
             return await entities.FirstOrDefaultAsync(predicate);
         }
+
+        
+        public async Task<List<T>> GetByFilter(Expression<Func<T, bool>> predicate)
+        {
+            return await entities.Where(predicate).ToListAsync();
+        }
         #endregion "Get Methods Implementation"
 
         #region "DB Operation Methods Implementation"

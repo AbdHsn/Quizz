@@ -1,5 +1,5 @@
 {
-  "name": "infonet",
+  "name": "UI",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,12 +22,15 @@
     "@fortawesome/angular-fontawesome": "^0.10.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@microsoft/signalr": "^7.0.0",
     "@ng-bootstrap/ng-bootstrap": "^13.1.1",
     "@popperjs/core": "^2.10.2",
+    "angular-moment": "^1.3.0",
     "bootstrap": "^5.2.0",
     "ngx-bootstrap-navbar": "^14.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "uuid": "^9.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -36,6 +39,7 @@
     "@angular/compiler-cli": "^14.0.0",
     "@angular/localize": "^14.0.0",
     "@types/jasmine": "~4.0.0",
+    "@types/uuid": "^9.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

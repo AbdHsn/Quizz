@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/models/user';
 import { ToastService } from 'src/services/toast.service';
-import { UserService } from 'src/services/user.service';
+import { APIService } from 'src/services/api.service';
 import { DeleteDialogComponent } from '../../common-pages/delete-dialog/delete-dialog.component';
 import { UserAddEditComponent } from '../user-add-edit/user-add-edit.component';
 
@@ -17,10 +17,10 @@ export class UserListComponent implements OnInit {
   isLoading: boolean = false;
 
   constructor(
-    private _userSrv: UserService,
+    private _apiSrv: APIService,
     private modalService: NgbModal,
     private _toastSrv: ToastService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getUsers();
@@ -30,12 +30,11 @@ export class UserListComponent implements OnInit {
     try {
       console.log('getUsers called');
       this.isLoading = true;
-      this._userSrv.get().subscribe(
-        (res) => {
-          this.userMdlLst = res as User[];
-          console.log('getUsers called', res, this.userMdlLst);
-          this.isLoading = false;
-        },
+      this._apiSrv.get('User').subscribe((res) => {
+        this.userMdlLst = res as User[];
+        console.log('getUsers called', res, this.userMdlLst);
+        this.isLoading = false;
+      },
         (error: HttpErrorResponse) => {
           this.isLoading = false;
           this._toastSrv.show(error.error, {
@@ -45,32 +44,20 @@ export class UserListComponent implements OnInit {
         }
       );
     } catch (error) {
+      console.log("error occured: ", error);
       this.isLoading = false;
     }
   }
 
-  onCreateTaskClick() {
+  onCreateUser() {
     const modalRef = this.modalService.open(UserAddEditComponent);
-    modalRef.componentInstance.title = 'Create Task';
+    modalRef.componentInstance.title = 'Create User';
     modalRef.componentInstance.taskMdl = {};
     modalRef.result.then(
       (result) => {
-        //this.getTaskGrid();
+        this.getUsers();
       },
-      (reason) => {}
-    );
-  }
-
-  onEditClick(item: User) {
-    const modalRef = this.modalService.open(UserAddEditComponent);
-    modalRef.componentInstance.title = 'Update Task';
-
-    modalRef.componentInstance.taskMdl = Object.assign({}, item);
-    modalRef.result.then(
-      (result) => {
-        // this.getTaskGrid();
-      },
-      (reason) => {}
+      (reason) => { }
     );
   }
 
@@ -79,17 +66,17 @@ export class UserListComponent implements OnInit {
       const modalRef = this.modalService.open(DeleteDialogComponent, {
         centered: true,
       });
-      modalRef.componentInstance.title = `Task "${item.name}"`;
+      modalRef.componentInstance.title = `User "${item.name}"`;
       modalRef.result.then((result) => {
         if (result as boolean) {
-          this._userSrv.Delete(item.id).subscribe(
+          this._apiSrv.Delete('User', item.id).subscribe(
             (res) => {
               if (res as boolean) {
                 this._toastSrv.show(`${item.name} successfully deleted.`, {
                   classname: 'bg-success text-light',
                   delay: 10000,
                 });
-                //this.getTaskGrid();
+                this.getUsers();
               }
             },
             (error: HttpErrorResponse) => {
@@ -101,6 +88,6 @@ export class UserListComponent implements OnInit {
           );
         }
       });
-    } catch (error) {}
+    } catch (error) { }
   }
 }

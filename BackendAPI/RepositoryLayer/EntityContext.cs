@@ -23,16 +23,23 @@ namespace RepositoryLayer
             {
                 entity.ToTable("user");
                 entity.Property(p => p.id).ValueGeneratedOnAdd().HasColumnName("id");
+            });   
+            modelBuilder.Entity<questions>(entity =>
+            {
+                entity.ToTable("questions");
+                entity.Property(p => p.id).ValueGeneratedOnAdd().HasColumnName("id");
             });
-
-            //modelBuilder.Entity<TotalRecordCountGLB>(entity =>
-            //{
-            //    entity.HasNoKey();
-            //});
+            modelBuilder.Entity<answer>(entity =>
+            {
+                entity.ToTable("answer");
+                entity.Property(p => p.id).ValueGeneratedOnAdd().HasColumnName("id");
+            });
         }
 
         #region TableEntities
         public virtual DbSet<user> User { get; set; } = null!;
+        public virtual DbSet<questions> Questions { get; set; } = null!;
+        public virtual DbSet<answer> Answer { get; set; } = null!;
         #endregion TableEntities
     }
 

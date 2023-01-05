@@ -1,0 +1,82 @@
+<div class="shadow bg-white rounded">
+  <div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+    <button (click)="_activeModal.close()" type="button" class="btn-close" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form #frmTask="ngForm">
+
+      <div class="position-relative form-group mt-2 m-1">
+        <label for="iTopic">Choose Topic</label>
+        <select name="iTopic" [(ngModel)]="questionsMdl.topic" #iTopic="ngModel" class="form-select" id="iTopic"
+          required>
+          <option value="">Choose Topics</option>
+          <option value="OOP">OOP</option>
+          <option value="Java Script">Java Script</option>
+          <option value="Type Script">Type Script</option>
+        </select>
+
+        <div *ngIf="iTopic.invalid && iTopic.dirty">
+          <label class="text-warning" *ngIf="iTopic.errors?.required">Select valid status.</label>
+        </div>
+      </div>
+
+
+      <div class="position-relative form-group mt-2 m-1">
+        <label for="iQuestion">Question</label>
+        <textarea cols="30" rows="3" [(ngModel)]="questionsMdl.question" #iQuestion="ngModel" name="iQuestion"
+          id="iQuestion" placeholder="Write Question" type="text" class="form-control" required minlength="2">
+                          </textarea>
+
+        <div *ngIf="iQuestion.invalid && iQuestion.dirty">
+          <label class="text-warning" *ngIf="iQuestion.errors?.required">Question is required.</label>
+          <label class="text-warning" *ngIf="iQuestion.errors?.minlength">
+            Question must be at least 2 characters long.
+          </label>
+        </div>
+      </div>
+
+      <div class="position-relative form-group mt-2 m-1">
+        <label for="iQuestion">Options</label>
+        <div class="input-group" *ngFor="let item of optionsMdlLst">
+          <div class="input-group-prepend">
+            <div class="input-group-text p-2 mt-1">
+              <input type="radio" name="rdoOption" id="rdoOption" [(ngModel)]="questionsMdl.correct_option"
+                [value]="item.option" aria-label="Radio button for following text input" [checked]="item.is_correct">
+            </div>
+          </div>
+          <input type="text" [(ngModel)]="item.option" name="txtOption" id="txtOption" class="form-control mb-1"
+            aria-label="Text input with radio button">
+        </div>
+      </div>
+
+      <div class="position-relative form-group mt-2 m-1">
+        <label for="iTime">Time In Minutes (Time Limit)</label>
+        <input [(ngModel)]="questionsMdl.time_in_minutes" #iTime="ngModel" name="iTime" id="iTime"
+          placeholder="Time in minutes" type="number" class="form-control" required />
+
+        <div *ngIf="iTime.invalid && iTime.dirty">
+          <label class="text-warning" *ngIf="iTime.errors?.required">Time is required.</label>
+        </div>
+      </div>
+
+      <div class="form-group mt-3 m-1">
+        <button *ngIf="!isProcessing" type="button" class="btn-transition btn btn-outline-success"
+          [disabled]="frmTask.invalid" (click)="save()">
+          <i class="fa fa-floppy-o" aria-hiddden="true"> Save</i>
+        </button>
+        <button *ngIf="isProcessing" class="btn-transition btn btn-outline-info" type="button" disabled>
+          <span class="spinner-border text-danger spinner-border-sm" role="status" aria-hidden="true"></span>
+          Processing...
+        </button>
+        &nbsp;
+        <button type="button" class="btn-transition btn btn-outline-danger" (click)="_activeModal.close()">
+          <i class="fa fa-times" aria-hidden="true"> Cancel</i>
+        </button>
+
+      </div>
+
+
+    </form>
+  </div>
+</div>

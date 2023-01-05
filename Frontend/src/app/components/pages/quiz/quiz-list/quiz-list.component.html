@@ -1,0 +1,100 @@
+<div class="shadow bg-white rounded mb-3 p-3">
+  <div class="row">
+    <div class="col-5">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"> <b>Quiz Panel</b> </label>
+        </div>
+
+        <select name="iTopic" (change)="onTopicChange($event)" [(ngModel)]="topic" #iTopic="ngModel" class="form-select"
+          id="iTopic" required>
+          <option value="">Choose Topics</option>
+          <option value="OOP">OOP</option>
+          <option value="Java Script">Java Script</option>
+          <option value="Type Script">Type Script</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="quizMdl && quizMdl.questions.length > 0; else elseBlock">
+    <div class="col-5">
+      <div class="list-group">
+        <div *ngFor="let item of quizMdl?.questions; index as i"
+          class="list-group-item list-group-item-action {{item.active? 'active': ''}}">
+          <div class="row" (click)="activeQuiz(item)" style="cursor: pointer;">
+            <div class="col-1 mt-3 pb-1"><b>{{i+1}}</b> </div>
+            <div class="col-11">
+              <p class="p-0 m-0">{{item.question}}</p>
+              <small style="float: right; margin-top: -20px;">
+                <span *ngIf="item.locked" class="fa fa-lock">&nbsp;</span>
+                <span *ngIf="!item.locked" class="fa fa-unlock-alt">&nbsp;</span>
+                <span class="fa fa-clock-o"> </span>
+                {{item.duration}}</small>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action bg-info">
+          <label for=""><b>Total Questions:</b>
+          </label>
+          <b style="float: right;">{{quizMdl.total_questions}}</b>
+          <br>
+          <label for=""><b>Total Duration:</b>
+          </label> <b style="float: right;">{{totalDuration}}</b>
+
+        </div>
+      </div>
+      <div class="list-group" (click)="onStartQuiz()">
+        <div class="list-group-item list-group-item-action bg-info text-center btn">
+          <b class="text-uppercase">Start</b>
+        </div>
+      </div>
+    </div>
+    <div class="col-7" *ngIf="activeQuizMdl.id > 0">
+      <div class="row">
+        <div class="col-12">
+          <div class="list-group">
+            <div class="list-group-item">
+
+              <h3>{{activeQuizMdl.question}}</h3>
+              <hr>
+
+              <div class="form-check" *ngFor="let option of activeQuizMdl.options?.split(',')">
+                <input class="form-check-input" type="radio" name="rdoOption" id="rdoOption"
+                  [(ngModel)]="activeQuizMdl.selected_option" [value]="option">
+                <label class="form-check-label" for="exampleRadios1">
+                  {{option}}
+                </label>
+              </div>
+
+              <button class="btn btn-sm btn-outline-success mt-3" (click)="onSubmitQuiz(activeQuizMdl)">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-9">
+        <div class="row">
+          <div class="col-12">
+            <h5 class="text-center">Result</h5>
+          </div>
+        </div>
+      </div> -->
+
+
+
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="row">
+      <div class="col-3">
+        <h5 class="text-info">No data available.</h5>
+      </div>
+    </div>
+
+  </ng-template>
+</div>
